@@ -14,6 +14,12 @@ URL: http://blacktie.co
 
 @charset "utf-8";
 
+#map-canvas {
+  height: 80vh;
+  margin-top: 0px;
+  padding: 0px
+}
+
 body {
   /* font-family: 'Lora', Georgia, 'KaiTi', 'Adobe Kaiti Std', 'STKaiti', serif; */
   font-family: Georgia, 'Times New Roman', 'SimSun', 'Microsoft YaHei', serif;
