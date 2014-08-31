@@ -1,0 +1,14 @@
+---
+# -*- mode: yaml; fill-column: 80 -*-
+
+- image: images/lovestory/mm/01.jpg
+  date: 1988/10
+  latitude: 29.154
+  longitude: 120.996
+  description: 胖乎乎
+
+- image: images/lovestory/mm/02.jpg
+  date: 1993/08
+  latitude: 29.154
+  longitude: 120.996
+  description: 傻呵呵

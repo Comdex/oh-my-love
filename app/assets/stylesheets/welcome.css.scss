@@ -15,9 +15,26 @@ URL: http://blacktie.co
 @charset "utf-8";
 
 #map-canvas {
-  height: 80vh;
+  height: 90vh;
   margin-top: 0px;
   padding: 0px
+}
+
+#story-caption {
+  width: 66%;
+  color: white;
+  font-weight: 700;
+  height: auto;
+  padding: 15px;
+  margin: 20px auto;
+  background: rgba(100, 100, 255, 0.2);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  font-family: Georgia, 'KaiTi', 'Adobe Kaiti Std', 'STKaiti', serif;
+  position: relative;
+  line-height: 28px;
+  font-size: 16px;
 }
 
 body {
