@@ -1,5 +1,5 @@
----
 # -*- mode: yaml; fill-column: 80 -*-
+---
 
 - image: images/lovestory/hanyu/01.jpg
   date: 1988/10
@@ -12,3 +12,9 @@
   latitude: 40.617
   longitude: 118.497
   description: 傻呵呵
+
+- image: images/lovestory/hanyu/03.jpg
+  date: 2007/05
+  latitude: 40.617
+  longitude: 118.497
+  description: 高中毕业，也曾青春年少

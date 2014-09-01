@@ -19,7 +19,7 @@ var positions = {
 var kuancheng = positions['kuancheng'];
 var tiantai = positions['tiantai'];
 var hangzhou = positions['hangzhou'];
-var initial_zoom = 3;
+var initial_zoom = 4;
 var initial_position = hangzhou['position'];
 
 var iterator = 0;
@@ -36,6 +36,7 @@ var storyImagesPath = "/images/lovestory/"
 var storyImages = ["hanyu", "mm"]
 
 var imageMetas = {};
+var imageStories = {};
 
 function getImageMetas(storyImages) {
   var i;
@@ -49,6 +50,22 @@ function getImageMetas(storyImages) {
       });
       $.ajaxSetup({"async": true});
     };
+    closure(i);
+  }
+}
+
+function getImageStories(storyImages) {
+  var i;
+  var imageStory;
+  for (i = 0; i < storyImages.length; i++) {
+    imageStory = storyImagesPath + storyImages[i] + "/story.json"
+    var closure = function (i) {
+      $.ajaxSetup({"async": false});
+      $.getJSON(imageStory, function(data) {
+        imageStories[storyImages[i]] = data;
+      })
+      $.ajaxSetup({"async": true});
+    }
     closure(i);
   }
 }
@@ -108,8 +125,8 @@ function imagesToInfoWindows(imagesMeta) {
   return infoWindows;
 }
 
-function imageStories(storyImage, localTimer) {
-  console.log("localTimer is: " + localTimer);
+function showImageStories(storyImage, localTimer) {
+  console.log("[showImageStories] localTimer is: " + localTimer);
   loopImages(imageMetas[storyImage], localTimer);
 }
 
@@ -130,22 +147,23 @@ function loopImages(imagesMeta, localTimer) {
           infoWindow.close(map);
         }
         else {
-          console.log("wrong options for argument 'action'");
+          console.log("[loopImages] wrong options for argument 'action'");
         }
       }
     }
-    console.log("infowindow " + i + " open in timer: " + localTimer);
+    console.log("[loopImages] infowindow " + i + " open in timer: " + localTimer);
     setTimeout(callback(infoWindow, "open"), localTimer);
     localTimer += infoWindowDuration;
     setTimeout(callback(infoWindow, "close"), localTimer);
     localTimer += infoWindowInterval;
   }
   timer = localTimer;
-  console.log("lala timer is: " + timer);
+  console.log("[loopImages] timer is: " + timer);
 }
 
-function storyCaption(caption, timer) {
+function showStoryCaption(story, timer) {
   var captionTimer = timer;
+  var caption = imageStories[story];
   var callback = function(caption) {
     return function() {
       $("#story-caption").text(caption);
@@ -156,7 +174,7 @@ function storyCaption(caption, timer) {
     var i;
     for (i = 0; i < caption.length; i++) {
       setTimeout(callback(caption[i]), captionTimer);
-      captionTimer += timerDelta;
+      captionTimer += 2 * timerDelta;
     }
   }
   else {
@@ -166,25 +184,29 @@ function storyCaption(caption, timer) {
 
 function loveStory() {
   getImageMetas(storyImages);   // get all image metadatas.
+  getImageStories(storyImages); // get all image stories
 
   timer = 0;
 
   timer += timerDelta;
-  storyCaption("从前有两个傻孩子", timer);
+  showStoryCaption("从前有两个傻孩子", timer);
 
   kuancheng["marker"].setIcon("http://ditu.google.cn/mapfiles/ms/icons/blue-dot.png")
   tiantai["marker"].setIcon("http://ditu.google.cn/mapfiles/ms/icons/green-dot.png")
 
-  zoomToPosition(kuancheng["position"], zoomSpeed, 3, 14);
-  storyCaption(["一个成长在大山里", "18岁之前从未去过北京"], timer);
-  imageStories("hanyu", timer);
-  // timer += infoWindowStoryTime * imageMetas["hanyu"].length;
-  zoomToPosition(kuancheng['position'], zoomSpeed, 14, 3);
+  // Hanyu born
+  zoomToPosition(kuancheng["position"], zoomSpeed, initial_zoom, 14);
+  showStoryCaption("hanyu", timer);
+  showImageStories("hanyu", timer);
+  zoomToPosition(kuancheng['position'], zoomSpeed, 14, initial_zoom);
 
-  zoomToPosition(tiantai['position'], zoomSpeed, 3, 14);
-  imageStories("mm", timer);
-  // timer += infoWindowStoryTime * imageMetas["mm"].length;
-  zoomToPosition(tiantai['position'], zoomSpeed, 14, 3);
+  // Momo born
+  zoomToPosition(tiantai['position'], zoomSpeed, initial_zoom, 14);
+  showStoryCaption("mm", timer);
+  showImageStories("mm", timer);
+  zoomToPosition(tiantai['position'], zoomSpeed, 14, initial_zoom);
+
+  //
 }
 
 function zoomToPosition(position, zoomSpeed, zoomStart, zoomEnd) {
@@ -198,12 +220,12 @@ function zoomToPosition(position, zoomSpeed, zoomStart, zoomEnd) {
   var current = zoomStart + delta;
   while (current != zoomEnd + delta) {
     timer += zoomSpeed * timerDelta;
-    console.log("timer is: " + timer);
+    console.log("[zoomToPosition] timer is: " + timer);
     var callback = function(position, current) {
       return function() {
         map.setCenter(position)
         map.setZoom(current);
-        console.log("zoom to: " + current);
+        console.log("[zoomToPosition] zoom to: " + current);
       }
     }
     setTimeout(callback(position, current), timer);
