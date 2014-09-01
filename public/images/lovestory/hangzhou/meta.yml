@@ -5,6 +5,8 @@ position:
   latitude: 30.25
   longitude: 120.1667
 
+zoom: 11
+
 images:
   - image: images/lovestory/hangzhou/01.jpg
     date: 2007/10
@@ -82,3 +84,8 @@ story:
   - 相知
   - 相伴
   - 相守
+  - 一路风雨
+  - 一路坎坷
+  - 初心不改
+  - 是谁说过
+  - 旅途是爱情的发源地？

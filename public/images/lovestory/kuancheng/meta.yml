@@ -5,6 +5,8 @@ position:
   latitude: 40.617
   longitude: 118.497
 
+zoom: 13
+
 images:
   - image: images/lovestory/kuancheng/01.jpg
     date: 1988/10
@@ -25,6 +27,7 @@ images:
     description: 高中毕业，也曾青春年少
 
 story:
+  - 从前有两个傻孩子
   - 一个成长在大山里
   - 呆头呆脑
   - 18岁之前从未去过北京

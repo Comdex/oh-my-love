@@ -11,8 +11,8 @@ var infoWindowDuration = 3 * timerDelta * zoomSpeed;
 var infoWindowInterval = timerDelta * zoomSpeed;
 var infoWindowStoryTime = infoWindowDuration + infoWindowInterval;
 
-var storyImagesPath = "/images/lovestory/"
-var stories = ["kuancheng", "tiantai", "hangzhou", "zhedong"]
+var storyImagesPath = "/images/lovestory/";
+var stories = ["kuancheng", "tiantai", "hangzhou", "zhedong", "qinghaihu", "xizang"];
 
 var imageMetas = {};
 
@@ -50,20 +50,13 @@ function initialize() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-// function drop() {
-//   for (var i = 0; i < hometowns.length; i++) {
-//     setTimeout(function() {
-//       add_marker();
-//     }, i*2000);
-//   }
-// }
-
 function new_marker(position) {
-  return new google.maps.Marker({
+  var marker = new google.maps.Marker({
     position: position,
     draggable: false,
     animation: google.maps.Animation.DROP
-  })
+  });
+  marker.setMap(map);
 }
 
 function imagesToInfoWindows(imagesMeta) {
@@ -104,9 +97,11 @@ function loopImages(imagesMeta, localTimer) {
     callback = function(infoWindow, imageMeta, action) {
       return function() {
         if (action == "open") {
-          map.panTo(new google.maps.LatLng(imageMeta['latitude'],
-                                           imageMeta['longitude']));
-          console.log("panTo " + new google.maps.LatLng(imageMeta['latitude'], imageMeta['longitude']))
+          var position = new google.maps.LatLng(imageMeta['latitude'],
+                                                imageMeta['longitude'])
+          map.panTo(position);
+          new_marker(position);
+          console.log("panTo " + position);
           infoWindow.open(map);
         }
         else if (action == "close") {
@@ -128,7 +123,7 @@ function loopImages(imagesMeta, localTimer) {
 }
 
 function showStoryCaption(story, timer) {
-  var captionTimer = timer;
+  var captionTimer = timer - 5 * timerDelta * zoomSpeed;
   var caption = imageMetas[story]['story']
   var callback = function(caption) {
     return function() {
@@ -139,7 +134,7 @@ function showStoryCaption(story, timer) {
   var i;
   for (i = 0; i < caption.length; i++) {
     setTimeout(callback(caption[i]), captionTimer);
-    captionTimer += 3 * timerDelta;
+    captionTimer += 4 * timerDelta * zoomSpeed;
   }
 
   setTimeout(function() {
@@ -152,19 +147,16 @@ function showStory(story) {
   var longitude = imageMetas[story]['position']['longitude'];
   var position = new google.maps.LatLng(latitude, longitude)
 
-  zoomToPosition(position, zoomSpeed, initial_zoom, 14);
+  zoomToPosition(position, zoomSpeed, initial_zoom, imageMetas[story]['zoom']);
   showStoryCaption(story, timer);
   showImageStories(story, timer);
-  zoomToPosition(position, zoomSpeed, 14, initial_zoom);
+  zoomToPosition(position, zoomSpeed, imageMetas[story]['zoom'], initial_zoom);
 }
 
 function loveStory() {
-  getImageMetas(stories);   // get all image metadatas.
+  getImageMetas(stories);       // get all image metadatas.
 
-  timer = 0;
-
-  timer += timerDelta;
-  // showStoryCaption("从前有两个傻孩子", timer);
+  timer = 0;                    // reset timer before story
 
   var i;
   for (i = 0; i < stories.length; i++) {
