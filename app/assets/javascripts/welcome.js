@@ -1,34 +1,8 @@
 "use strict"
 
 var map;
-var positions = {
-  "kuancheng": {
-    "position": new google.maps.LatLng(40.617, 118.497),
-    "marker": new_marker(new google.maps.LatLng(40.617, 118.497))
-  },
-  "tiantai": {
-    "position": new google.maps.LatLng(29.154,120.996),
-    "marker": new_marker(new google.maps.LatLng(29.154,120.996))
-  },
-  "hangzhou": {
-    "position": new google.maps.LatLng(30.25, 120.1667),
-    "marker": new_marker(new google.maps.LatLng(30.25, 120.1667))
-  },
-  "zhedong": {
-    "position": new google.maps.LatLng(28.855, 120.754),
-    "marker": new_marker(new google.maps.LatLng(28.855, 120.754))
-  }
-}
-
-var kuancheng = positions['kuancheng'];
-var tiantai = positions['tiantai'];
-var hangzhou = positions['hangzhou'];
-var zhedong = positions['zhedong'];
 var initial_zoom = 4;
-var initial_position = hangzhou['position'];
-
-var iterator = 0;
-var markers = [];
+var initial_position = new google.maps.LatLng(39.908, 116.397); // Beijing
 
 var timer = 0;
 var timerDelta = 1000;
@@ -38,39 +12,22 @@ var infoWindowInterval = timerDelta * zoomSpeed;
 var infoWindowStoryTime = infoWindowDuration + infoWindowInterval;
 
 var storyImagesPath = "/images/lovestory/"
-var storyImages = ["kuancheng", "tiantai", "hangzhou", "zhedong"]
+var stories = ["kuancheng", "tiantai", "hangzhou", "zhedong"]
 
 var imageMetas = {};
-var imageStories = {};
 
-function getImageMetas(storyImages) {
+function getImageMetas(stories) {
   var i;
   var imageMetaJson;
-  for (i = 0; i < storyImages.length; i++) {
-    imageMetaJson = storyImagesPath + storyImages[i] + "/image_meta.json";
+  for (i = 0; i < stories.length; i++) {
+    imageMetaJson = storyImagesPath + stories[i] + "/meta.json";
     var closure = function (i) {
       $.ajaxSetup({"async": false});
       $.getJSON(imageMetaJson, function(data) {
-        imageMetas[storyImages[i]] = data;
+        imageMetas[stories[i]] = data;
       });
       $.ajaxSetup({"async": true});
     };
-    closure(i);
-  }
-}
-
-function getImageStories(storyImages) {
-  var i;
-  var imageStory;
-  for (i = 0; i < storyImages.length; i++) {
-    imageStory = storyImagesPath + storyImages[i] + "/story.json"
-    var closure = function (i) {
-      $.ajaxSetup({"async": false});
-      $.getJSON(imageStory, function(data) {
-        imageStories[storyImages[i]] = data;
-      })
-      $.ajaxSetup({"async": true});
-    }
     closure(i);
   }
 }
@@ -80,10 +37,10 @@ function initialize() {
     zoom: initial_zoom,
     maxZoom: 15,
     minZoom: 3,
-    // draggable: false,
-    // disableDefaultUI: true,
-    // disableDoubleClickZoom: true,
-    // scrollwheel: false,
+    draggable: false,
+    disableDefaultUI: true,
+    disableDoubleClickZoom: true,
+    scrollwheel: false,
     center: initial_position,
     mapTypeId: google.maps.MapTypeId.HYBRID
   };
@@ -130,9 +87,9 @@ function imagesToInfoWindows(imagesMeta) {
   return infoWindows;
 }
 
-function showImageStories(storyImage, localTimer) {
+function showImageStories(story, localTimer) {
   console.log("[showImageStories] localTimer is: " + localTimer);
-  loopImages(imageMetas[storyImage], localTimer);
+  loopImages(imageMetas[story]['images'], localTimer);
 }
 
 function loopImages(imagesMeta, localTimer) {
@@ -172,7 +129,7 @@ function loopImages(imagesMeta, localTimer) {
 
 function showStoryCaption(story, timer) {
   var captionTimer = timer;
-  var caption = imageStories[story];
+  var caption = imageMetas[story]['story']
   var callback = function(caption) {
     return function() {
       $("#story-caption").text(caption);
@@ -191,17 +148,32 @@ function showStoryCaption(story, timer) {
   }
 }
 
+function showStory(story) {
+  var latitude = imageMetas[story]['position']['latitude'];
+  var longitude = imageMetas[story]['position']['longitude'];
+  var position = new google.maps.LatLng(latitude, longitude)
+
+  zoomToPosition(position, zoomSpeed, initial_zoom, 14);
+  showStoryCaption(story, timer);
+  showImageStories(story, timer);
+  zoomToPosition(position, zoomSpeed, 14, initial_zoom);
+}
+
 function loveStory() {
-  getImageMetas(storyImages);   // get all image metadatas.
-  getImageStories(storyImages); // get all image stories
+  getImageMetas(stories);   // get all image metadatas.
 
   timer = 0;
 
   timer += timerDelta;
-  showStoryCaption("从前有两个傻孩子", timer);
+  // showStoryCaption("从前有两个傻孩子", timer);
 
-  kuancheng["marker"].setIcon("http://ditu.google.cn/mapfiles/ms/icons/blue-dot.png")
-  tiantai["marker"].setIcon("http://ditu.google.cn/mapfiles/ms/icons/green-dot.png")
+  var i;
+  for (i = 0; i < stories.length; i++) {
+    showStory(stories[i]);
+  }
+
+  // kuancheng["marker"].setIcon("http://ditu.google.cn/mapfiles/ms/icons/blue-dot.png")
+  // tiantai["marker"].setIcon("http://ditu.google.cn/mapfiles/ms/icons/green-dot.png")
 
   // Hanyu born
   // zoomToPosition(kuancheng["position"], zoomSpeed, initial_zoom, 14);
@@ -222,10 +194,10 @@ function loveStory() {
   // zoomToPosition(hangzhou['position'], zoomSpeed, 12, initial_zoom);
 
   // Traval in east zhejiang
-  zoomToPosition(zhedong['position'], zoomSpeed, initial_zoom, 12);
-  showStoryCaption("zhedong", timer);
-  showImageStories("zhedong", timer);
-  zoomToPosition(zhedong['position'], zoomSpeed, 12, initial_zoom);
+  // zoomToPosition(zhedong['position'], zoomSpeed, initial_zoom, 12);
+  // showStoryCaption("zhedong", timer);
+  // showImageStories("zhedong", timer);
+  // zoomToPosition(zhedong['position'], zoomSpeed, 12, initial_zoom);
 }
 
 function zoomToPosition(position, zoomSpeed, zoomStart, zoomEnd) {
