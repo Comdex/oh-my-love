@@ -1,0 +1,14 @@
+# -*- mode: yaml; fill-column: 80 -*-
+---
+
+- image: images/lovestory/zhedong/01.jpg
+  date: 2007/10
+  latitude: 28.855
+  longitude: 120.754
+  description: 浙东骑行
+
+- image: images/lovestory/zhedong/02.jpg
+  date: 2007/10
+  latitude: 28.855
+  longitude: 120.754
+  description: 浙东骑行

@@ -13,12 +13,17 @@ var positions = {
   "hangzhou": {
     "position": new google.maps.LatLng(30.25, 120.1667),
     "marker": new_marker(new google.maps.LatLng(30.25, 120.1667))
+  },
+  "zhedong": {
+    "position": new google.maps.LatLng(28.855, 120.754),
+    "marker": new_marker(new google.maps.LatLng(28.855, 120.754))
   }
 }
 
 var kuancheng = positions['kuancheng'];
 var tiantai = positions['tiantai'];
 var hangzhou = positions['hangzhou'];
+var zhedong = positions['zhedong'];
 var initial_zoom = 4;
 var initial_position = hangzhou['position'];
 
@@ -33,7 +38,7 @@ var infoWindowInterval = timerDelta * zoomSpeed;
 var infoWindowStoryTime = infoWindowDuration + infoWindowInterval;
 
 var storyImagesPath = "/images/lovestory/"
-var storyImages = ["hanyu", "mm"]
+var storyImages = ["kuancheng", "tiantai", "hangzhou", "zhedong"]
 
 var imageMetas = {};
 var imageStories = {};
@@ -75,10 +80,10 @@ function initialize() {
     zoom: initial_zoom,
     maxZoom: 15,
     minZoom: 3,
-    draggable: false,
-    disableDefaultUI: true,
-    disableDoubleClickZoom: true,
-    scrollwheel: false,
+    // draggable: false,
+    // disableDefaultUI: true,
+    // disableDoubleClickZoom: true,
+    // scrollwheel: false,
     center: initial_position,
     mapTypeId: google.maps.MapTypeId.HYBRID
   };
@@ -132,15 +137,19 @@ function showImageStories(storyImage, localTimer) {
 
 function loopImages(imagesMeta, localTimer) {
   var i;
-  var infoWindows, infoWindow;
+  var infoWindows, infoWindow, imageMeta;
   var callback;
 
   infoWindows = imagesToInfoWindows(imagesMeta);
   for (i = 0; i < infoWindows.length; i++) {
     infoWindow = infoWindows[i];
-    callback = function(infoWindow, action) {
+    imageMeta = imagesMeta[i];
+    callback = function(infoWindow, imageMeta, action) {
       return function() {
         if (action == "open") {
+          map.panTo(new google.maps.LatLng(imageMeta['latitude'],
+                                           imageMeta['longitude']));
+          console.log("panTo " + new google.maps.LatLng(imageMeta['latitude'], imageMeta['longitude']))
           infoWindow.open(map);
         }
         else if (action == "close") {
@@ -152,9 +161,9 @@ function loopImages(imagesMeta, localTimer) {
       }
     }
     console.log("[loopImages] infowindow " + i + " open in timer: " + localTimer);
-    setTimeout(callback(infoWindow, "open"), localTimer);
+    setTimeout(callback(infoWindow, imageMeta, "open"), localTimer);
     localTimer += infoWindowDuration;
-    setTimeout(callback(infoWindow, "close"), localTimer);
+    setTimeout(callback(infoWindow, imageMeta, "close"), localTimer);
     localTimer += infoWindowInterval;
   }
   timer = localTimer;
@@ -195,18 +204,28 @@ function loveStory() {
   tiantai["marker"].setIcon("http://ditu.google.cn/mapfiles/ms/icons/green-dot.png")
 
   // Hanyu born
-  zoomToPosition(kuancheng["position"], zoomSpeed, initial_zoom, 14);
-  showStoryCaption("hanyu", timer);
-  showImageStories("hanyu", timer);
-  zoomToPosition(kuancheng['position'], zoomSpeed, 14, initial_zoom);
+  // zoomToPosition(kuancheng["position"], zoomSpeed, initial_zoom, 14);
+  // showStoryCaption("kuancheng", timer);
+  // showImageStories("kuancheng", timer);
+  // zoomToPosition(kuancheng['position'], zoomSpeed, 14, initial_zoom);
 
   // Momo born
-  zoomToPosition(tiantai['position'], zoomSpeed, initial_zoom, 14);
-  showStoryCaption("mm", timer);
-  showImageStories("mm", timer);
-  zoomToPosition(tiantai['position'], zoomSpeed, 14, initial_zoom);
+  // zoomToPosition(tiantai['position'], zoomSpeed, initial_zoom, 14);
+  // showStoryCaption("tiantai", timer);
+  // showImageStories("tiantai", timer);
+  // zoomToPosition(tiantai['position'], zoomSpeed, 14, initial_zoom);
 
-  //
+  // Love in Hangzhou
+  // zoomToPosition(hangzhou['position'], zoomSpeed, initial_zoom, 12);
+  // showStoryCaption("hangzhou", timer);
+  // showImageStories("hangzhou", timer);
+  // zoomToPosition(hangzhou['position'], zoomSpeed, 12, initial_zoom);
+
+  // Traval in east zhejiang
+  zoomToPosition(zhedong['position'], zoomSpeed, initial_zoom, 12);
+  showStoryCaption("zhedong", timer);
+  showImageStories("zhedong", timer);
+  zoomToPosition(zhedong['position'], zoomSpeed, 12, initial_zoom);
 }
 
 function zoomToPosition(position, zoomSpeed, zoomStart, zoomEnd) {
