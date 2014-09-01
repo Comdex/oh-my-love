@@ -136,16 +136,15 @@ function showStoryCaption(story, timer) {
     }
   }
 
-  if (caption instanceof Array) {
-    var i;
-    for (i = 0; i < caption.length; i++) {
-      setTimeout(callback(caption[i]), captionTimer);
-      captionTimer += 2 * timerDelta;
-    }
+  var i;
+  for (i = 0; i < caption.length; i++) {
+    setTimeout(callback(caption[i]), captionTimer);
+    captionTimer += 3 * timerDelta;
   }
-  else {
-    setTimeout(callback(caption), captionTimer);
-  }
+
+  setTimeout(function() {
+    $("#story-caption").text("");
+  }, captionTimer);             // clear caption text
 }
 
 function showStory(story) {
@@ -175,29 +174,7 @@ function loveStory() {
   // kuancheng["marker"].setIcon("http://ditu.google.cn/mapfiles/ms/icons/blue-dot.png")
   // tiantai["marker"].setIcon("http://ditu.google.cn/mapfiles/ms/icons/green-dot.png")
 
-  // Hanyu born
-  // zoomToPosition(kuancheng["position"], zoomSpeed, initial_zoom, 14);
-  // showStoryCaption("kuancheng", timer);
-  // showImageStories("kuancheng", timer);
-  // zoomToPosition(kuancheng['position'], zoomSpeed, 14, initial_zoom);
-
-  // Momo born
-  // zoomToPosition(tiantai['position'], zoomSpeed, initial_zoom, 14);
-  // showStoryCaption("tiantai", timer);
-  // showImageStories("tiantai", timer);
-  // zoomToPosition(tiantai['position'], zoomSpeed, 14, initial_zoom);
-
-  // Love in Hangzhou
-  // zoomToPosition(hangzhou['position'], zoomSpeed, initial_zoom, 12);
-  // showStoryCaption("hangzhou", timer);
-  // showImageStories("hangzhou", timer);
-  // zoomToPosition(hangzhou['position'], zoomSpeed, 12, initial_zoom);
-
-  // Traval in east zhejiang
-  // zoomToPosition(zhedong['position'], zoomSpeed, initial_zoom, 12);
-  // showStoryCaption("zhedong", timer);
-  // showImageStories("zhedong", timer);
-  // zoomToPosition(zhedong['position'], zoomSpeed, 12, initial_zoom);
+  timer = 0;                    // reset timer after story
 }
 
 function zoomToPosition(position, zoomSpeed, zoomStart, zoomEnd) {
