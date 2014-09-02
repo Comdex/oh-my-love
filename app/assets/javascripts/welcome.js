@@ -12,7 +12,9 @@ var infoWindowInterval = timerDelta * zoomSpeed;
 var infoWindowStoryTime = infoWindowDuration + infoWindowInterval;
 
 var storyImagesPath = "/images/lovestory/";
-var stories = ["kuancheng", "tiantai", "hangzhou", "zhedong", "qinghaihu", "xizang"];
+var stories = ["kuancheng", "tiantai", "hangzhou", "zhedong",
+               "qinghaihu", "dongji", "xizang", "shennongjia",
+               "tianmushan"];
 
 var imageMetas = {};
 

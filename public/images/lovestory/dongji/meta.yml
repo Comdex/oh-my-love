@@ -1,0 +1,34 @@
+# -*- mode: yaml; fill-column: 80 -*-
+---
+
+position:
+  latitude: 30.193
+  longitude: 122.686            # dongji island
+
+zoom: 14
+
+images:
+  - image: images/lovestory/dongji/01.jpg
+    date: 2008/06
+    latitude: 30.206
+    longitude: 122.682
+    description: 拥抱
+
+  - image: images/lovestory/dongji/02.jpg
+    date: 2008/06
+    latitude: 30.199
+    longitude: 122.687
+    description: 大海
+
+  - image: images/lovestory/dongji/03.jpg
+    date: 2008/06
+    latitude: 30.199
+    longitude: 122.687
+    description: 日出
+
+story:
+  - 后来他们去看了真正的大海
+  - 两个傻孩子
+  - 在祖国最早见到日出的海边
+  - 笑容
+  - 如朝霞一般灿烂
