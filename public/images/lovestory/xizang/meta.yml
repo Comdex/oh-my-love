@@ -40,17 +40,23 @@ images:
 
   - image: images/lovestory/xizang/06.jpg
     date: 2008/08
+    latitude: 31.955
+    longitude: 98.749
+    description: 雪地长征
+
+  - image: images/lovestory/xizang/07.jpg
+    date: 2008/08
     latitude: 31.620
     longitude: 98.583
     description: 山口彩虹
 
-  - image: images/lovestory/xizang/07.jpg
+  - image: images/lovestory/xizang/08.jpg
     date: 2008/08
     latitude: 33.701
     longitude: 92.121
     description: 三江源头
 
-  - image: images/lovestory/xizang/08.jpg
+  - image: images/lovestory/xizang/09.jpg
     date: 2008/08
     latitude: 30.271
     longitude: 120.195
