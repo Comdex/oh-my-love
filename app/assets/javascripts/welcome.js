@@ -16,7 +16,8 @@ var infoWindowStoryTime = infoWindowDuration + infoWindowInterval;
 var storyImagesPath = "/images/lovestory/";
 var stories = ["kuancheng", "tiantai", "hangzhou", "zhedong",
                "qinghaihu", "dongji", "xizang", "shennongjia",
-               "shaoxing", "tianmushan", "xiamen", "nanxijiang"];
+               "shaoxing", "tianmushan", "xiamen", "nanxijiang",
+               "xibei"];
 
 var imageMetas = {};
 
