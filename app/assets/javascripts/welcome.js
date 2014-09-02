@@ -1,5 +1,7 @@
 "use strict"
 
+var debug;                      // show log or not
+
 var map;
 var initial_zoom = 4;
 var initial_position = new google.maps.LatLng(39.908, 116.397); // Beijing
@@ -17,6 +19,10 @@ var stories = ["kuancheng", "tiantai", "hangzhou", "zhedong",
                "tianmushan"];
 
 var imageMetas = {};
+
+function log(str) {
+  debug && console.log(str);
+}
 
 function getImageMetas(stories) {
   var i;
@@ -39,10 +45,10 @@ function initialize() {
     zoom: initial_zoom,
     maxZoom: 15,
     minZoom: 3,
-    draggable: false,
-    disableDefaultUI: true,
-    disableDoubleClickZoom: true,
-    scrollwheel: false,
+    // draggable: false,
+    // disableDefaultUI: true,
+    // disableDoubleClickZoom: true,
+    // scrollwheel: false,
     center: initial_position,
     mapTypeId: google.maps.MapTypeId.HYBRID
   };
@@ -83,7 +89,7 @@ function imagesToInfoWindows(imagesMeta) {
 }
 
 function showImageStories(story, localTimer) {
-  console.log("[showImageStories] localTimer is: " + localTimer);
+  log("[showImageStories] localTimer is: " + localTimer);
   loopImages(imageMetas[story]['images'], localTimer);
 }
 
@@ -103,25 +109,25 @@ function loopImages(imagesMeta, localTimer) {
                                                 imageMeta['longitude'])
           map.panTo(position);
           new_marker(position);
-          console.log("panTo " + position);
+          log("panTo " + position);
           infoWindow.open(map);
         }
         else if (action == "close") {
           infoWindow.close(map);
         }
         else {
-          console.log("[loopImages] wrong options for argument 'action'");
+          log("[loopImages] wrong options for argument 'action'");
         }
       }
     }
-    console.log("[loopImages] infowindow " + i + " open in timer: " + localTimer);
+    log("[loopImages] infowindow " + i + " open in timer: " + localTimer);
     setTimeout(callback(infoWindow, imageMeta, "open"), localTimer);
     localTimer += infoWindowDuration;
     setTimeout(callback(infoWindow, imageMeta, "close"), localTimer);
     localTimer += infoWindowInterval;
   }
   timer = localTimer;
-  console.log("[loopImages] timer is: " + timer);
+  log("[loopImages] timer is: " + timer);
 }
 
 function showStoryCaption(story, timer) {
@@ -182,12 +188,12 @@ function zoomToPosition(position, zoomSpeed, zoomStart, zoomEnd) {
   var current = zoomStart + delta;
   while (current != zoomEnd + delta) {
     timer += zoomSpeed * timerDelta;
-    console.log("[zoomToPosition] timer is: " + timer);
+    log("[zoomToPosition] timer is: " + timer);
     var callback = function(position, current) {
       return function() {
         map.setCenter(position)
         map.setZoom(current);
-        console.log("[zoomToPosition] zoom to: " + current);
+        log("[zoomToPosition] zoom to: " + current);
       }
     }
     setTimeout(callback(position, current), timer);
