@@ -24,10 +24,17 @@ images:
     date: 2008/06
     latitude: 30.199
     longitude: 122.687
+    description: 背影
+
+  - image: images/lovestory/dongji/04.jpg
+    date: 2008/06
+    latitude: 30.199
+    longitude: 122.687
     description: 日出
 
 story:
   - 后来他们去看了真正的大海
+  - 星辰大海
   - 两个傻孩子
   - 在祖国最早见到日出的海边
   - 笑容
