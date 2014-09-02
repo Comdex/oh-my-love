@@ -28,45 +28,68 @@ images:
 
   - image: images/lovestory/tianmushan/04.jpg
     date: 2009/05
+    latitude: 30.263
+    longitude: 119.622
+    description: 排排坐来
+
+  - image: images/lovestory/tianmushan/05.jpg
+    date: 2009/05
+    latitude: 30.283
+    longitude: 119.545
+    description: 背包问路
+
+  - image: images/lovestory/tianmushan/06.jpg
+    date: 2009/05
     latitude: 30.296
     longitude: 119.523
     description: 小心色狗
 
-  - image: images/lovestory/tianmushan/05.jpg
-    date: 2009/05
-    latitude: 30.312
-    longitude: 119.512
-    description: 牵手同行
-
-  - image: images/lovestory/tianmushan/06.jpg
-    date: 2009/05
-    latitude: 30.312
-    longitude: 119.512
-    description: 月圆之夜
-
   - image: images/lovestory/tianmushan/07.jpg
     date: 2009/05
-    latitude: 30.312
-    longitude: 119.512
-    description: 大队人马
+    latitude: 30.296
+    longitude: 119.523
+    description: 睡神附体
 
   - image: images/lovestory/tianmushan/08.jpg
     date: 2009/05
     latitude: 30.312
     longitude: 119.512
-    description: 来一个嘛
+    description: 牵手同行
 
   - image: images/lovestory/tianmushan/09.jpg
     date: 2009/05
     latitude: 30.312
     longitude: 119.512
-    description: 古树参天
+    description: 月圆之夜
+
+  - image: images/lovestory/tianmushan/10.jpg
+    date: 2009/05
+    latitude: 30.312
+    longitude: 119.512
+    description: 朝露清晨
+
+  - image: images/lovestory/tianmushan/11.jpg
+    date: 2009/05
+    latitude: 30.312
+    longitude: 119.512
+    description: 大队人马
+
+  - image: images/lovestory/tianmushan/12.jpg
+    date: 2009/05
+    latitude: 30.312
+    longitude: 119.512
+    description: 来一个嘛
 
 story:
   - 他们一起去天目山
+  - 单骑徒步
+  - 牵手同行
+  - 背包问路
   - 举目望天
   - 月圆夜话
-  - 牵手同行
-  - 单骑徒步
+  - 朝露清晨
+  - 曲径通幽
+  - 古树参天
+  - 清流如许
   - 快乐如斯
   - 夫复何求
