@@ -1,0 +1,75 @@
+# -*- mode: yaml; fill-column: 80 -*-
+---
+
+position:
+  latitude: 28.334
+  longitude: 120.737            # Yantouzhen
+
+zoom: 12
+
+images:
+  - image: images/lovestory/nanxijiang/01.jpg
+    date: 2010/09
+    latitude: 28.334
+    longitude: 120.737
+    description: 大手小手
+
+  - image: images/lovestory/nanxijiang/02.jpg
+    date: 2010/09
+    latitude: 28.470
+    longitude: 120.535
+    description: 我家大妞
+
+  - image: images/lovestory/nanxijiang/03.jpg
+    date: 2010/09
+    latitude: 28.472
+    longitude: 120.532
+    description: 木枝为筷
+
+  - image: images/lovestory/nanxijiang/04.jpg
+    date: 2010/09
+    latitude: 28.475
+    longitude: 120.530
+    description: 冒雨前行
+
+  - image: images/lovestory/nanxijiang/05.jpg
+    date: 2010/09
+    latitude: 28.475
+    longitude: 120.524
+    description: “不理你了”
+
+  - image: images/lovestory/nanxijiang/06.jpg
+    date: 2010/09
+    latitude: 28.481
+    longitude: 120.521
+    description: 木干为杖
+
+  - image: images/lovestory/nanxijiang/07.jpg
+    date: 2010/09
+    latitude: 28.477
+    longitude: 120.524
+    description: 四根木杖
+
+  - image: images/lovestory/nanxijiang/08.jpg
+    date: 2010/09
+    latitude: 28.476
+    longitude: 120.520
+    description: 笑靥如花
+
+  - image: images/lovestory/nanxijiang/09.jpg
+    date: 2010/09
+    latitude: 28.476
+    longitude: 120.520
+    description: 平静如水
+
+story:
+  - 后来她去了上海
+  - 两地相隔
+  - 中秋相聚
+  - 深山老林
+  - 秋雨延绵
+  - 涉水徒步
+  - 与友同行
+  - 与友同乐
+  - 静水深流
+  - 快乐永忆
