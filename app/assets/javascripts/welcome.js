@@ -45,10 +45,10 @@ function initialize() {
     zoom: initial_zoom,
     maxZoom: 15,
     minZoom: 3,
-    // draggable: false,
-    // disableDefaultUI: true,
-    // disableDoubleClickZoom: true,
-    // scrollwheel: false,
+    draggable: false,
+    disableDefaultUI: true,
+    disableDoubleClickZoom: true,
+    scrollwheel: false,
     center: initial_position,
     mapTypeId: google.maps.MapTypeId.HYBRID
   };
@@ -131,7 +131,7 @@ function loopImages(imagesMeta, localTimer) {
 }
 
 function showStoryCaption(story, timer) {
-  var captionTimer = timer - 5 * timerDelta * zoomSpeed;
+  var captionTimer = timer - 3 * timerDelta * zoomSpeed;
   var caption = imageMetas[story]['story']
   var callback = function(caption) {
     return function() {

@@ -10,14 +10,14 @@ zoom: 9
 images:
   - image: images/lovestory/shennongjia/01.jpg
     date: 2009/05
-    latitude: 30.308
-    longitude: 120.085
+    latitude: 32.608
+    longitude: 110.767
     description: 向着夕阳
 
   - image: images/lovestory/shennongjia/02.jpg
     date: 2009/05
-    latitude: 30.308
-    longitude: 120.085
+    latitude: 32.355
+    longitude: 110.695
     description: 风雨兼程
 
   - image: images/lovestory/shennongjia/03.jpg
