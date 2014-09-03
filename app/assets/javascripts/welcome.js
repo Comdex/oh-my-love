@@ -58,7 +58,7 @@ function initialize() {
 
   invitation_ajax();
 
-  setTimeout(function() {loveStory()}, 10000);
+  // setTimeout(function() {loveStory()}, 10000);
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -212,7 +212,10 @@ function zoomToInit(speed) {
 
 function invitation_ajax() {
   $('#invitation-form').on('ajax:success', function(xhr, status, error) {
+    var index = (Math.floor(Math.random() * 100) % 20) + 11;
+    var image_path = "/images/paint/" + index + ".jpg"
     $('#invitation-form').fadeOut(2000);
+    $('#invitation-image > img').attr("src", image_path);
     $('#invitation-image').delay(3000).fadeIn(3000);
   });
 }
