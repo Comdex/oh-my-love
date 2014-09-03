@@ -1,0 +1,69 @@
+# -*- mode: yaml; fill-column: 80 -*-
+---
+
+position:
+  latitude: 42.030
+  longitude: 128.053            # Changbai Mountain
+
+zoom: 14
+
+images:
+  - image: images/lovestory/changbaishan/01.jpg
+    date: 2012/01
+    latitude: 42.047
+    longitude: 128.075
+    description: 天边飞云
+
+  - image: images/lovestory/changbaishan/02.jpg
+    date: 2012/01
+    latitude: 42.030
+    longitude: 128.053
+    description: 俯仰天地
+
+  - image: images/lovestory/changbaishan/03.jpg
+    date: 2012/01
+    latitude: 42.030
+    longitude: 128.053
+    description: 行迹山巅
+
+  - image: images/lovestory/changbaishan/04.jpg
+    date: 2012/01
+    latitude: 42.030
+    longitude: 128.053
+    description: 天池佳人
+
+  - image: images/lovestory/changbaishan/05.jpg
+    date: 2012/01
+    latitude: 42.029
+    longitude: 128.048
+    description: 飞得很高
+
+  - image: images/lovestory/changbaishan/06.jpg
+    date: 2012/01
+    latitude: 42.026
+    longitude: 128.045
+    description: 也无风雪
+
+  - image: images/lovestory/changbaishan/07.jpg
+    date: 2012/01
+    latitude: 42.048
+    longitude: 128.061
+    description: 白雪映红
+
+  - image: images/lovestory/changbaishan/08.jpg
+    date: 2012/01
+    latitude: 42.046
+    longitude: 128.059
+    description: 世界尽头
+
+story:
+  - 她长在江南
+  - 那里的冬天阴冷绵长
+  - 哪像北方的三九
+  - 凛冽刻骨
+  - 于是他和她
+  - 她跟着他
+  - 去世界的尽头
+  - 长白飞瀑
+  - 去看一场地地道道的
+  - 北方的雪

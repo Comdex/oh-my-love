@@ -17,7 +17,7 @@ var storyImagesPath = "/images/lovestory/";
 var stories = ["kuancheng", "tiantai", "hangzhou", "zhedong",
                "qinghaihu", "dongji", "xizang", "shennongjia",
                "shaoxing", "tianmushan", "xiamen", "nanxijiang",
-               "xibei"];
+               "changbaishan", "xibei"];
 
 var imageMetas = {};
 
