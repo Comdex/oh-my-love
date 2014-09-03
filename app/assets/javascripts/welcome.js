@@ -57,6 +57,8 @@ function initialize() {
                             mapOptions);
 
   invitation_ajax();
+
+  setTimeout(function() {loveStory()}, 10000);
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -214,5 +216,3 @@ function invitation_ajax() {
     $('#invitation-image').delay(3000).fadeIn(3000);
   });
 }
-
-initialize();
