@@ -210,10 +210,9 @@ function zoomToInit(speed) {
 
 function invitation_ajax() {
   $('#invitation-form').on('ajax:success', function(xhr, status, error) {
-    $('#invitation-form').toggle('explode');
-    $('#invitation').html('<img src="images/paint.jpg"></img>');
+    $('#invitation-form').fadeOut(2000);
+    $('#invitation-image').delay(3000).fadeIn(3000);
   });
 }
 
 initialize();
-loveStory();

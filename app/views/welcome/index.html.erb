@@ -275,6 +275,10 @@
 	  <div id="invitation" class="col-md-6">
         <% @invitation = Invitation.new %>
         <%= render "form"%>
+        <figure id="invitation-image" style="display: none">
+          <img src="images/paint.jpg"></img>
+          <h3>祝君安</h3>
+        </figure>
 	  </div><! --/col-md-6 -->
 
 	  <div class="col-md-6">
@@ -295,7 +299,6 @@
 <script src="assets/bootstrap.js"></script>
 <script src="assets/easing.js"></script>
 <script src="assets/nicescroll.js"></script>
-<script src="assets/jquery-ui.min.js"></script>
 
 <script>
  $(function() {
