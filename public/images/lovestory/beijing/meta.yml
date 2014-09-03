@@ -1,0 +1,136 @@
+# -*- mode: yaml; fill-column: 80 -*-
+---
+
+position:
+  latitude: 39.991
+  longitude: 116.309            # Peking University
+
+zoom: 13
+
+images:
+  - image: images/lovestory/beijing/01.jpg
+    date: 2011/08
+    latitude: 39.991
+    longitude: 116.309
+    description: 大猫小猫
+
+  - image: images/lovestory/beijing/02.jpg
+    date: 2011/08
+    latitude: 40.005
+    longitude: 116.320
+    description: 泰山压顶
+
+  - image: images/lovestory/beijing/03.jpg
+    date: 2011/09
+    latitude: 39.941
+    longitude: 116.335
+    description: 童心未泯
+
+  - image: images/lovestory/beijing/04.jpg
+    date: 2011/09
+    latitude: 40.002
+    longitude: 116.314
+    description: 萌妞一枚
+
+  - image: images/lovestory/beijing/05.jpg
+    date: 2011/09
+    latitude: 40.002
+    longitude: 116.314
+    description: 美妞一枚
+
+  - image: images/lovestory/beijing/06.jpg
+    date: 2012/04
+    latitude: 40.002
+    longitude: 116.209
+    description: 春风吹绿
+
+  - image: images/lovestory/beijing/07.jpg
+    date: 2012/10
+    latitude: 39.917
+    longitude: 116.397
+    description: 故宫太和
+
+  - image: images/lovestory/beijing/08.jpg
+    date: 2012/01
+    latitude: 40.014
+    longitude: 116.346
+    description: 装点生活
+
+  - image: images/lovestory/beijing/09.jpg
+    date: 2012/01
+    latitude: 39.989
+    longitude: 116.313
+    description: 睡眼惺忪
+
+  - image: images/lovestory/beijing/10.jpg
+    date: 2012/01
+    latitude: 39.989
+    longitude: 116.313
+    description: 睡虫一枚
+
+  - image: images/lovestory/beijing/11.jpg
+    date: 2012/01
+    latitude: 39.989
+    longitude: 116.313
+    description: 睡功初成
+
+  - image: images/lovestory/beijing/12.jpg
+    date: 2012/01
+    latitude: 40.014
+    longitude: 116.346
+    description: 喵喵喵喵
+
+  - image: images/lovestory/beijing/13.jpg
+    date: 2012/03
+    latitude: 39.991
+    longitude: 116.310
+    description: 春花灿烂
+
+  - image: images/lovestory/beijing/14.jpg
+    date: 2012/07
+    latitude: 39.987
+    longitude: 116.308
+    description: 排排坐来
+
+  - image: images/lovestory/beijing/15.jpg
+    date: 2012/09
+    latitude: 39.942
+    longitude: 116.387
+    description: 后海光影
+
+  - image: images/lovestory/beijing/16.jpg
+    date: 2012/01
+    latitude: 39.989
+    longitude: 116.313
+    description: 五彩斑斓
+
+  - image: images/lovestory/beijing/17.jpg
+    date: 2012/12
+    latitude: 39.994
+    longitude: 116.311
+    description: 全副武装
+
+  - image: images/lovestory/beijing/18.jpg
+    date: 2013/03
+    latitude: 39.994
+    longitude: 116.310
+    description: 暮春飞雪
+
+story:
+  - 毕业后
+  - 他去了北京
+  - 她也去了
+  - 他工作
+  - 她读书
+  - 他买菜
+  - 她做饭
+  - 她上课
+  - 他蹭课
+  - 她出差
+  - 他守家
+  - 就这样
+  - 北漂
+  - 三年
+  - 忘不了
+  - 未名湖畔
+  - 暮春飞雪
