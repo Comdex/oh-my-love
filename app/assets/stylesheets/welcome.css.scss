@@ -38,14 +38,14 @@ URL: http://blacktie.co
 }
 
 body {
-  /* font-family: 'Lora', Georgia, 'KaiTi', 'Adobe Kaiti Std', 'STKaiti', serif; */
-  font-family: Georgia, 'Times New Roman', 'SimSun', 'Microsoft YaHei', serif;
+  font-family: Georgia, 'KaiTi', 'Adobe Kaiti Std', 'STKaiti', 'Times New Roman', 'SimSun', 'Microsoft YaHei', serif;
   background: #FFF;
   font-weight: 300;
   height: 100%;
   margin: 0;
   padding: 0;
   color: rgb(56, 56, 56);
+  font-size: 18px;
 }
 
 strong, b {
@@ -554,7 +554,6 @@ a:hover,a:focus {
   height: 100vh;
   padding: 60px 15px;
   color: #FFF;
-  text-align: center;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .1);
   background-color: #6883cc;
   background-image: url("/images/bg2.jpg");
