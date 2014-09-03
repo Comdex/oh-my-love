@@ -174,9 +174,6 @@ function loveStory() {
     showStory(stories[i]);
   }
 
-  // kuancheng["marker"].setIcon("http://ditu.google.cn/mapfiles/ms/icons/blue-dot.png")
-  // tiantai["marker"].setIcon("http://ditu.google.cn/mapfiles/ms/icons/green-dot.png")
-
   timer = 0;                    // reset timer after story
 }
 
@@ -219,3 +216,4 @@ function invitation_ajax() {
 }
 
 initialize();
+loveStory();
