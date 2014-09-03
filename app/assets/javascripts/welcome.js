@@ -55,6 +55,8 @@ function initialize() {
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
                             mapOptions);
+
+  invitation_ajax();
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -208,3 +210,12 @@ function zoomToInit(speed) {
   else
     zoomToPosition(initial_position, speed, initial_zoom);
 }
+
+function invitation_ajax() {
+  $('#invitation-form').on('ajax:success', function(xhr, status, error) {
+    $('#invitation-form').toggle('explode');
+    $('#invitation').html('<img src="images/paint.jpg"></img>');
+  });
+}
+
+initialize();

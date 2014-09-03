@@ -1,0 +1,64 @@
+<%= form_for(@invitation, remote: true, html: {id: "invitation-form", class: "form-horizontal", role: "form"}) do |f| %>
+<% if @invitation.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@invitation.errors.count, "error") %> prohibited this invitation from being saved:</h2>
+
+  <ul>
+    <% @invitation.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+  <label for="invitation_name" class="col-md-2 control-label">恭请</label>
+  <div class="col-md-10">
+    <input type="text" class="form-control" id="invitation_name" name="invitation[name]" placeholder="您的大名">
+  </div>
+</div>
+<div class="form-group">
+  <label for="invitation_phone" class="col-md-2 control-label">手机</label>
+  <div class="col-md-10">
+    <input type="text" class="form-control" id="invitation_phone" name="invitation[phone]" placeholder="怎么联系您">
+  </div>
+</div>
+<div class="form-group">
+  <label for="invitation_gift" class="col-md-2 control-label">备礼</label>
+  <div class="col-md-10">
+    <select id="invitation_gift" class="form-control" name="invitation[gift]">
+      <option value="card">寄贺卡</option>
+      <option value="debt">打欠条</option>
+    </select>
+  </div>
+</div>
+<div class="form-group">
+  <label for="invitation_hotel" class="col-md-2 control-label">住宿</label>
+  <div class="col-md-10">
+    <select id="invitation_hotel" class="form-control" name="invitation[hotel]">
+      <option value="yes">安排住宿</option>
+      <option value="no">不安排住宿</option>
+    </select>
+  </div>
+</div>
+<div class="form-group">
+  <label for="invitation_party" class="col-md-2 control-label">场次</label>
+  <div class="col-md-10">
+    <select id="invitation_party" class="form-control" name="invitation[party]">
+      <option value="bride">家宴：2014年9月20日11:00-14:00，浙江省台州市天台县左岸酒店</option>
+      <option value="groom">婚礼：2014年10月1日10:00-14:00，河北省承德市宽城县鑫河饭店</option>
+    </select>
+  </div>
+</div>
+<div class="form-group">
+  <label for="invitation_note" class="col-md-2 control-label">留言</label>
+  <div class="col-md-10">
+    <textarea type="text" class="form-control" id="invitation_note" name="invitation[note]" placeholder="借您吉言"></textarea>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-md-offset-2 col-md-10">
+    <button type="submit" class="btn btn-success">祝福</button>
+  </div>
+</div>
+<% end %>

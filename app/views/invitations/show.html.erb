@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @invitation.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @invitation.phone %>
+</p>
+
+<p>
+  <strong>Gift:</strong>
+  <%= @invitation.gift %>
+</p>
+
+<p>
+  <strong>Hotel:</strong>
+  <%= @invitation.hotel %>
+</p>
+
+<p>
+  <strong>Party:</strong>
+  <%= @invitation.party %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @invitation.note %>
+</p>
+
+<%= link_to 'Edit', edit_invitation_path(@invitation) %> |
+<%= link_to 'Back', invitations_path %>
