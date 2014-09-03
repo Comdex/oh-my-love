@@ -16,44 +16,80 @@ images:
 
   - image: images/lovestory/changbaishan/02.jpg
     date: 2012/01
-    latitude: 42.030
-    longitude: 128.053
-    description: 俯仰天地
+    latitude: 42.034
+    longitude: 128.056
+    description: 暴风飞雪
 
   - image: images/lovestory/changbaishan/03.jpg
     date: 2012/01
     latitude: 42.030
     longitude: 128.053
-    description: 行迹山巅
+    description: 俯仰天地
 
   - image: images/lovestory/changbaishan/04.jpg
     date: 2012/01
     latitude: 42.030
     longitude: 128.053
-    description: 天池佳人
+    description: 行迹山巅
 
   - image: images/lovestory/changbaishan/05.jpg
+    date: 2012/01
+    latitude: 42.030
+    longitude: 128.053
+    description: 天池佳人
+
+  - image: images/lovestory/changbaishan/06.jpg
     date: 2012/01
     latitude: 42.029
     longitude: 128.048
     description: 飞得很高
 
-  - image: images/lovestory/changbaishan/06.jpg
+  - image: images/lovestory/changbaishan/07.jpg
     date: 2012/01
     latitude: 42.026
     longitude: 128.045
     description: 也无风雪
 
-  - image: images/lovestory/changbaishan/07.jpg
+  - image: images/lovestory/changbaishan/08.jpg
+    date: 2012/01
+    latitude: 42.050
+    longitude: 128.057
+    description: 醉卧雪地
+
+  - image: images/lovestory/changbaishan/09.jpg
+    date: 2012/01
+    latitude: 42.050
+    longitude: 128.057
+    description: 树欲静
+
+  - image: images/lovestory/changbaishan/10.jpg
+    date: 2012/01
+    latitude: 42.050
+    longitude: 128.057
+    description: 风不止
+
+  - image: images/lovestory/changbaishan/11.jpg
     date: 2012/01
     latitude: 42.048
     longitude: 128.061
     description: 白雪映红
 
-  - image: images/lovestory/changbaishan/08.jpg
+  - image: images/lovestory/changbaishan/12.jpg
     date: 2012/01
-    latitude: 42.046
-    longitude: 128.059
+    latitude: 42.039
+    longitude: 128.047
+    description: 山口彩虹
+
+  - image: images/lovestory/changbaishan/13.jpg
+    date: 2012/01
+    latitude: 42.033
+    longitude: 128.049
+    description: 雪山温泉
+
+  - image: images/lovestory/changbaishan/14.jpg
+    date: 2012/01
+    latitude: 42.033
+    longitude: 128.049
     description: 世界尽头
 
 story:
@@ -65,5 +101,9 @@ story:
   - 她跟着他
   - 去世界的尽头
   - 长白飞瀑
-  - 去看一场地地道道的
+  - 去看一次地地道道的
   - 北方的雪
+  - 她冻得发抖
+  - 他穿了三条秋裤
+  - 他也冻得发抖
+  - 他们快乐得不行
