@@ -58,7 +58,7 @@ function initialize() {
 
   invitation_ajax();
 
-  // setTimeout(function() {loveStory()}, 10000);
+  setTimeout(function() {loveStory()}, 10000);
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
