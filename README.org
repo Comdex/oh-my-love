@@ -1,0 +1,4 @@
+This is a personal site for my lovele girl, it is inspired by [[https://github.com/wong2/lovegift][lovegift]].
+
+The code contains lots of quick and dirty quirks, I'm not sure whether I have
+time to make it clean and readable.
